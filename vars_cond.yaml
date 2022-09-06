@@ -1,0 +1,10 @@
+---
+ - hosts: all
+   vars:
+      a: httpd
+   become: true
+   tasks: 
+     - yum: 
+        name: "{{p}}"
+        state: latest
+        when: p is defined and ansible_distribution=="RedHat" or ansible_distribution=="Ubuntu"

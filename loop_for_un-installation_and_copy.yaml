@@ -1,0 +1,19 @@
+---
+ - hosts: all
+   become: true
+   tasks: 
+         - name: install a package
+           yum:
+                 name: 
+                     - httpd
+                     - vsftpd
+                     - git
+                 state: absent
+
+         - name: copy files
+           copy:
+                   src: "{{item}}"
+                   dest: /home/ec2-user
+           with_items:
+                   - a.txt
+                   - b.txt

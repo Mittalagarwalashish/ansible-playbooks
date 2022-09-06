@@ -1,0 +1,14 @@
+---
+ - hosts: all
+   tasks: 
+    - name: print info of managed node
+      debug:
+          msg: total memory {{ansible_memtotal_mb}}MB
+    - name: print os
+      debug:
+          msg: your os is {{ansible_distribution}}
+    - name: print python version
+      debug:
+          msg: your py version is {{ansible_python.version_info[0]}}
+
+  

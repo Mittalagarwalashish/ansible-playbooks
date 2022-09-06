@@ -1,0 +1,11 @@
+---
+ - hosts: all
+   become: true
+   tasks: 
+    - name: install packeges
+      yum:
+        name: 
+         - httpd
+         - git
+         - vsftpd  
+        state: present

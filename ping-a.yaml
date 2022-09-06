@@ -1,0 +1,6 @@
+---
+ - hosts: a
+   become: true
+   remote_user: ec2-user
+   tasks:
+     - ping:

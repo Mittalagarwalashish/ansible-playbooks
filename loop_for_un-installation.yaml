@@ -1,0 +1,8 @@
+---
+ - hosts: all
+   become: true
+   tasks: 
+    - name: un-install packeges
+      yum:
+        name: ["httpd", "vsftpd", "git"]
+        state: absent

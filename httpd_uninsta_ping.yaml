@@ -1,0 +1,14 @@
+---
+ - hosts: all
+   become: true
+   remote_user: ec2-user
+   tasks:
+     - name: checking connection
+       ping:
+ - name: webserver
+   hosts: webserver
+   tasks:
+     - name: uninstall httpd
+       yum:
+        name: httpd
+        state: absent

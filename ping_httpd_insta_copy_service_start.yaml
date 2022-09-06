@@ -1,0 +1,22 @@
+---
+ - hosts: all
+   become: true
+   remote_user: ec2-user
+   tasks:
+     - name: checking connection
+       ping:
+
+     - name: install httpd
+       yum:
+        name: httpd
+        state: latest
+
+     - name: copy data
+       copy:
+        src: index.html
+        dest: /var/www/html/
+
+     - name: service start
+       service:
+            name: httpd
+            state: started

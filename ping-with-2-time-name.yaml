@@ -1,0 +1,9 @@
+---
+ - name: connection
+   hosts: all
+   become: true
+   remote_user: ec2-user
+   tasks:
+     - name: checking connection
+       ping:
+            

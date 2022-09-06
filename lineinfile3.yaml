@@ -1,0 +1,7 @@
+---
+ - hosts: all
+   tasks:
+      - name: abc
+        copy:
+          src: ip.txt
+          dest: ip.txt

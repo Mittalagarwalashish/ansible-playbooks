@@ -1,0 +1,8 @@
+ansible-vault create ash.txt
+ansible-vault rekey ash.txt
+ansible-vault encrypt ash.txt
+ansible-vault decrypt ash.txt
+ansible-vault view ash.txt
+ansible-vault edit ash.txt
+ansible-playbook ping-all.yaml --vault-password-file password_file_for_vault.txt -v
+ansible-playbook ping-all.yaml --ask-vault-pass -v

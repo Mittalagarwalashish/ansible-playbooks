@@ -1,0 +1,12 @@
+ansible-playbook global_scope_var.yaml -e x=httpd -e state=latest service_status=enabled
+ansible-playbook global_scope_var.yaml -e x=httpd -e state=absent
+ansible-playbook global_scope_var.yaml -e x=git -e state=latest  service_status=enabled
+ansible-playbook global_scope_var.yaml -e x=git -e state=absent
+ansible-playbook global_scope_var.yaml -e x=vsftpd -e state=latest service-status=enabled
+ansible-playbook global_scope_var.yaml -e x=vsftpd -e state=absent
+ansible-playbook global_scope_var.yaml -e x=httpd -e state=latest service_status=started
+ansible-playbook global_scope_var.yaml -e x=git -e state=latest service_status=started
+ansible-playbook global_scope_var.yaml -e x=vsftpd -e state=latest service_status=started
+ansible-playbook global_scope_var.yaml -e x=httpd -e state=latest service_status=restarted
+ansible-playbook global_scope_var.yaml -e x=git -e state=latest service_status=restarted
+ansible-playbook global_scope_var.yaml -e x=vsftpd -e state=latest service_status=enabled

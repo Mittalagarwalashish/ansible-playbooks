@@ -1,0 +1,9 @@
+---
+ - hosts: all
+   become: true
+   tasks: 
+    - name: installation
+      yum: 
+       name: ["httpd", "vsftpd", "git"]
+       state: present
+     

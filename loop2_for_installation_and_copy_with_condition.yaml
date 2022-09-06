@@ -1,0 +1,27 @@
+---
+ - hosts: all
+   become: true
+   tasks: 
+         - name: install a package
+           yum:
+                 name: 
+                     - httpd
+                     - vsftpd
+                     - git
+                 state: present
+           when: ansible_distribution == "RedHat"
+
+         - name: install a package ubuntu
+           apt:
+                  name: apache2
+                  state: present 
+           when: ansible_distribution == "Ubuntu"
+
+         - name: copy files
+           copy:
+                   src: "{{item}}"
+                   dest: /home/ec2-user
+           with_items:
+                   - a.txt
+                   - b.txt
+           when: ansible_distribution == "RedHat"

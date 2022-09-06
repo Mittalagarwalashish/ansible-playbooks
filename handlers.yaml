@@ -1,0 +1,28 @@
+---
+ - hosts: all
+   become: true
+   force_handlers: true
+   tasks: 
+    - name: abc
+      yum:
+        name: httpd
+        state: latest
+    - name: abcd    
+      copy: 
+        src:  index.html
+        dest: /var/www/html
+    - name: abcde    
+      copy:
+        src: sample.conf
+        dest: /etc/httpd/conf.d/sample.conf
+      notify: 
+         - restart sevice
+         - service: 
+             name: httpd
+             state: started
+      handlers:
+         - name: restart service
+           service:
+               name: httpd
+               state: restarted
+

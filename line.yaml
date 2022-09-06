@@ -1,0 +1,6 @@
+---
+ - hosts: all
+   tasks: 
+    - name: print a name
+      debug:
+         msg: hiii this is {{x}}

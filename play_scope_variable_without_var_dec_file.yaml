@@ -1,0 +1,33 @@
+---
+ - name: connection
+   hosts: all
+   vars_files:
+           - play_scope_variable_declear_file.yaml
+   tasks:
+         - name: checking connection
+           ping:
+
+ - name: webserver
+   vars:
+       - x: httpd
+       - state: latest
+       - service_status: restarted
+
+   hosts: webserver
+   become: true
+   tasks: 
+         - name: install {{x}}
+           yum:
+              name: "{{x}}"
+              state: "{{state}}"
+
+         - name: copy data
+           copy:
+               src: index.html
+               dest: /var/www/html
+
+         - name: service start
+           service: 
+               name: "{{x}}"
+               state: "{{service_status}}"
+               enabled: yes

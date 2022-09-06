@@ -1,0 +1,16 @@
+---
+ - hosts: all
+   become: true
+   tasks: 
+    - name: un-installation of httpd
+      yum: 
+       name: httpd
+       state: absent
+    - name: un-installation of git 
+      yum:
+        name: git
+        state: absent
+    - name: un-installation of vsftpd
+      yum: 
+       name: vsftpd
+       state: present      

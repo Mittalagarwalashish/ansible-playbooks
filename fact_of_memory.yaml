@@ -1,0 +1,6 @@
+---
+ - hosts: all
+   tasks: 
+    - name: print info of managed node
+      debug:
+          msg: total memory {{ansible_memtotal_mb}}MB
